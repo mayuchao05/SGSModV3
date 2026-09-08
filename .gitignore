@@ -1,0 +1,19 @@
+bin/
+obj/
+.vs/
+.idea/
+.godot/
+*.DotSettings
+*.DotSettings.user
+
+local.props
+*.uid
+*.import
+*.tmp
+*.log
+
+# 构建产物与第三方二进制（RitsuLib 来自创意工坊，不入库）
+*.pck
+*.dll
+*.exe
+

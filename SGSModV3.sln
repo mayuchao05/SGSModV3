@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGSModV3", "SGSModV3.csproj", "{817BCC30-B6FB-46BE-96F5-1C3A256E1BBA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{817BCC30-B6FB-46BE-96F5-1C3A256E1BBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{817BCC30-B6FB-46BE-96F5-1C3A256E1BBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{817BCC30-B6FB-46BE-96F5-1C3A256E1BBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{817BCC30-B6FB-46BE-96F5-1C3A256E1BBA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

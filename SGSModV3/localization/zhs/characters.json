@@ -1,0 +1,21 @@
+{
+  "SGS_MOD_V3_CHARACTER_SGS_MOD_V3_CHARACTER.aromaPrinciple": "[sine][blue]新的旅程，从一份干净模板开始。[/blue][/sine]",
+  "SGS_MOD_V3_CHARACTER_SGS_MOD_V3_CHARACTER.banter.alive.endTurnPing": "回合结束。",
+  "SGS_MOD_V3_CHARACTER_SGS_MOD_V3_CHARACTER.banter.dead.endTurnPing": "我先撤退。",
+  "SGS_MOD_V3_CHARACTER_SGS_MOD_V3_CHARACTER.cardsModifierDescription": "模板角色的卡牌现在会出现在奖励和商店中。",
+  "SGS_MOD_V3_CHARACTER_SGS_MOD_V3_CHARACTER.cardsModifierTitle": "模板卡牌",
+  "SGS_MOD_V3_CHARACTER_SGS_MOD_V3_CHARACTER.defeatMessage": "模板还需要继续调整。",
+  "SGS_MOD_V3_CHARACTER_SGS_MOD_V3_CHARACTER.description": "一个用于验证 RitsuLib 模板工程的示例角色。\n复制模板后，把这里替换成你的角色设定。",
+  "SGS_MOD_V3_CHARACTER_SGS_MOD_V3_CHARACTER.eventDeathPrevention": "模板角色继续坚持。",
+  "SGS_MOD_V3_CHARACTER_SGS_MOD_V3_CHARACTER.flavor": "一份干净的模板，等待被改造成新的冒险。",
+  "SGS_MOD_V3_CHARACTER_SGS_MOD_V3_CHARACTER.goldMonologue": "这些金币足够开始测试。",
+  "SGS_MOD_V3_CHARACTER_SGS_MOD_V3_CHARACTER.possessiveAdjective": "他的",
+  "SGS_MOD_V3_CHARACTER_SGS_MOD_V3_CHARACTER.pronounObject": "他",
+  "SGS_MOD_V3_CHARACTER_SGS_MOD_V3_CHARACTER.pronounPossessive": "他的",
+  "SGS_MOD_V3_CHARACTER_SGS_MOD_V3_CHARACTER.pronounSubject": "他",
+  "SGS_MOD_V3_CHARACTER_SGS_MOD_V3_CHARACTER.selectMessage": "模板角色准备就绪。",
+  "SGS_MOD_V3_CHARACTER_SGS_MOD_V3_CHARACTER.title": "模板角色",
+  "SGS_MOD_V3_CHARACTER_SGS_MOD_V3_CHARACTER.titleObject": "模板角色",
+  "SGS_MOD_V3_CHARACTER_SGS_MOD_V3_CHARACTER.unlockText": "用[pink]{Prerequisite}[/pink]进行一局游戏来解锁这个角色。",
+  "SGS_MOD_V3_CHARACTER_SGS_MOD_V3_CHARACTER.victoryMessage": "模板验证完成。"
+}
