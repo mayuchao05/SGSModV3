@@ -17,3 +17,6 @@ local.props
 *.dll
 *.exe
 
+
+# 备份文件
+*.bak
