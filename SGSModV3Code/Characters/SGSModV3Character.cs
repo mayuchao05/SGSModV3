@@ -1,16 +1,20 @@
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Characters;
 using STS2RitsuLib.Scaffolding.Godot;
+using System;
+using System.Collections.Generic;
 
 namespace SGSModV3.Characters;
 
 [RegisterCharacter]
 public sealed class SGSModV3Character : ModCharacterTemplate<SGSModV3CardPool, SGSModV3RelicPool, SGSModV3PotionPool>
 {
-    public static readonly Color ThemeColor = new(0.42f, 0.65f, 0.72f);
+    // 角色主题色：翠绿（参考"传世宝玉"，鲜艳玉绿）。同时决定卡池列表色 / 名字色 / 地图色。
+    public static readonly Color ThemeColor = new(0.30f, 0.85f, 0.45f);
 
     private const string SceneRoot = $"{Entry.ResPath}/scenes/characters";
     private const string ImageRoot = $"{Entry.ResPath}/images/characters";
@@ -23,7 +27,7 @@ public sealed class SGSModV3Character : ModCharacterTemplate<SGSModV3CardPool, S
     // 角色名称颜色。
     public override Color NameColor => ThemeColor;
     // 能量图标轮廓颜色。
-    public override Color EnergyLabelOutlineColor => new(0.08f, 0.18f, 0.24f);
+    public override Color EnergyLabelOutlineColor => new(0.05f, 0.25f, 0.12f);
     // 地图绘制颜色。
     public override Color MapDrawingColor => ThemeColor;
 
@@ -31,7 +35,7 @@ public sealed class SGSModV3Character : ModCharacterTemplate<SGSModV3CardPool, S
     public override CharacterGender Gender => CharacterGender.Neutral;
 
     // 初始血量和金币。
-    public override int StartingHp => 75;
+    public override int StartingHp => 68;
     public override int StartingGold => 99;
 
     // CharacterAssetProfile 按类别拆分。你只写需要替换的部分，其他字段会保留回退。
@@ -88,4 +92,5 @@ public sealed class SGSModV3Character : ModCharacterTemplate<SGSModV3CardPool, S
             "vfx/vfx_rock_shatter"
         ];
     }
+
 }

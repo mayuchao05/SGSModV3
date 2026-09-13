@@ -1,0 +1,749 @@
+[gd_resource type="SpriteFrames" load_steps=48 format=3]
+
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Idle/idle_00.png" id="e1"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Idle/idle_01.png" id="e2"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Idle/idle_02.png" id="e3"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Idle/idle_03.png" id="e4"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Idle/idle_04.png" id="e5"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Idle/idle_05.png" id="e6"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Idle/idle_06.png" id="e7"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Idle/idle_07.png" id="e8"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Idle/idle_08.png" id="e9"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Idle/idle_09.png" id="e10"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Idle/idle_10.png" id="e11"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Idle/idle_11.png" id="e12"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Attack/attack_00.png" id="e13"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Attack/attack_01.png" id="e14"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Attack/attack_02.png" id="e15"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Attack/attack_03.png" id="e16"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Attack/attack_04.png" id="e17"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Attack/attack_05.png" id="e18"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Attack/attack_06.png" id="e19"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Attack/attack_07.png" id="e20"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Attack/attack_08.png" id="e21"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Attack/attack_09.png" id="e22"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Cast/cast_00.png" id="e23"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Cast/cast_01.png" id="e24"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Cast/cast_02.png" id="e25"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Cast/cast_03.png" id="e26"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Cast/cast_04.png" id="e27"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Cast/cast_05.png" id="e28"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Cast/cast_06.png" id="e29"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Cast/cast_07.png" id="e30"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Cast/cast_08.png" id="e31"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Cast/cast_09.png" id="e32"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Cast/cast_10.png" id="e33"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Cast/cast_11.png" id="e34"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Hit/hit_00.png" id="e35"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Hit/hit_01.png" id="e36"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Hit/hit_02.png" id="e37"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Hit/hit_03.png" id="e38"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Hit/hit_04.png" id="e39"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Hit/hit_05.png" id="e40"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Hit/hit_06.png" id="e41"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Hit/hit_07.png" id="e42"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Dead/dead_00.png" id="e43"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Dead/dead_01.png" id="e44"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Dead/dead_02.png" id="e45"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Dead/dead_03.png" id="e46"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Dead/dead_04.png" id="e47"]
+
+[resource]
+animations = [
+{
+"frames": [
+{
+"duration": 1.0,
+"texture": ExtResource("e1")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e2")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e3")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e4")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e5")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e6")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e7")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e8")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e9")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e10")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e11")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e12")
+}
+],
+"loop": true,
+"name": &"Idle",
+"speed": 6.0
+},
+{
+"frames": [
+{
+"duration": 1.0,
+"texture": ExtResource("e1")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e2")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e3")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e4")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e5")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e6")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e7")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e8")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e9")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e10")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e11")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e12")
+}
+],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+},
+{
+"frames": [
+{
+"duration": 1.0,
+"texture": ExtResource("e1")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e2")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e3")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e4")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e5")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e6")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e7")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e8")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e9")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e10")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e11")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e12")
+}
+],
+"loop": true,
+"name": &"idle_loop",
+"speed": 6.0
+},
+{
+"frames": [
+{
+"duration": 1.0,
+"texture": ExtResource("e1")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e2")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e3")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e4")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e5")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e6")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e7")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e8")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e9")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e10")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e11")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e12")
+}
+],
+"loop": true,
+"name": &"relaxed_loop",
+"speed": 6.0
+},
+{
+"frames": [
+{
+"duration": 1.0,
+"texture": ExtResource("e13")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e14")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e15")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e16")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e17")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e18")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e19")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e20")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e21")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e22")
+}
+],
+"loop": false,
+"name": &"Attack",
+"speed": 12.0
+},
+{
+"frames": [
+{
+"duration": 1.0,
+"texture": ExtResource("e13")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e14")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e15")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e16")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e17")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e18")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e19")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e20")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e21")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e22")
+}
+],
+"loop": false,
+"name": &"attack",
+"speed": 12.0
+},
+{
+"frames": [
+{
+"duration": 1.0,
+"texture": ExtResource("e13")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e14")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e15")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e16")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e17")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e18")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e19")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e20")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e21")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e22")
+}
+],
+"loop": false,
+"name": &"attack_heavy",
+"speed": 12.0
+},
+{
+"frames": [
+{
+"duration": 1.0,
+"texture": ExtResource("e23")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e24")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e25")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e26")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e27")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e28")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e29")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e30")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e31")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e32")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e33")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e34")
+}
+],
+"loop": false,
+"name": &"Cast",
+"speed": 12.0
+},
+{
+"frames": [
+{
+"duration": 1.0,
+"texture": ExtResource("e23")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e24")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e25")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e26")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e27")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e28")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e29")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e30")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e31")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e32")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e33")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e34")
+}
+],
+"loop": false,
+"name": &"cast",
+"speed": 12.0
+},
+{
+"frames": [
+{
+"duration": 1.0,
+"texture": ExtResource("e35")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e36")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e37")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e38")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e39")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e40")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e41")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e42")
+}
+],
+"loop": false,
+"name": &"Hit",
+"speed": 9.0
+},
+{
+"frames": [
+{
+"duration": 1.0,
+"texture": ExtResource("e35")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e36")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e37")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e38")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e39")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e40")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e41")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e42")
+}
+],
+"loop": false,
+"name": &"hurt",
+"speed": 9.0
+},
+{
+"frames": [
+{
+"duration": 1.0,
+"texture": ExtResource("e35")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e36")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e37")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e38")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e39")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e40")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e41")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e42")
+}
+],
+"loop": false,
+"name": &"hit",
+"speed": 9.0
+},
+{
+"frames": [
+{
+"duration": 1.0,
+"texture": ExtResource("e43")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e44")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e45")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e46")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e47")
+}
+],
+"loop": false,
+"name": &"Dead",
+"speed": 6.0
+},
+{
+"frames": [
+{
+"duration": 1.0,
+"texture": ExtResource("e43")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e44")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e45")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e46")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e47")
+}
+],
+"loop": false,
+"name": &"die",
+"speed": 6.0
+},
+{
+"frames": [
+{
+"duration": 1.0,
+"texture": ExtResource("e43")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e44")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e45")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e46")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e47")
+}
+],
+"loop": false,
+"name": &"dead",
+"speed": 6.0
+},
+{
+"frames": [
+{
+"duration": 1.0,
+"texture": ExtResource("e43")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e44")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e45")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e46")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("e47")
+}
+],
+"loop": false,
+"name": &"death",
+"speed": 6.0
+}
+]

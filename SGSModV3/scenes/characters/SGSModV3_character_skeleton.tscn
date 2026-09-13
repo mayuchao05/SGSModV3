@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/SGSModV3_part_head.png" id="1_head"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/SGSModV3_part_torso.png" id="2_torso"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/SGSModV3_part_arm_l.png" id="3_arm_l"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/SGSModV3_part_arm_r.png" id="4_arm_r"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/SGSModV3_part_leg_l.png" id="5_leg_l"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/SGSModV3_part_leg_r.png" id="6_leg_r"]
+[ext_resource type="Script" path="res://SGSModV3/scenes/characters/SGSModV3_character_skeleton.gd" id="7_ctrl"]
+
+[node name="SGSModV3CharacterSkeleton" type="Node2D"]
+script = ExtResource("7_ctrl")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="Hip" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(0, 20)
+default_length = 300
+
+[node name="Torso" type="Bone2D" parent="Skeleton2D/Hip"]
+position = Vector2(0, -300)
+default_length = 280
+
+[node name="TorsoSprite" type="Sprite2D" parent="Skeleton2D/Hip/Torso"]
+z_index = 0
+position = Vector2(0, 300)
+offset = Vector2(0, -140)
+texture = ExtResource("2_torso")
+
+[node name="Head" type="Bone2D" parent="Skeleton2D/Hip/Torso"]
+position = Vector2(0, -5)
+default_length = 160
+
+[node name="HeadSprite" type="Sprite2D" parent="Skeleton2D/Hip/Torso/Head"]
+z_index = 1
+offset = Vector2(0, -80)
+texture = ExtResource("1_head")
+
+[node name="ArmL" type="Bone2D" parent="Skeleton2D/Hip/Torso"]
+position = Vector2(135, 15)
+default_length = 240
+
+[node name="ArmLSprite" type="Sprite2D" parent="Skeleton2D/Hip/Torso/ArmL"]
+z_index = 2
+offset = Vector2(35, 155)
+texture = ExtResource("3_arm_l")
+
+[node name="ArmR" type="Bone2D" parent="Skeleton2D/Hip/Torso"]
+position = Vector2(-135, 15)
+default_length = 260
+
+[node name="ArmRSprite" type="Sprite2D" parent="Skeleton2D/Hip/Torso/ArmR"]
+z_index = 2
+offset = Vector2(-25, 235)
+texture = ExtResource("4_arm_r")
+
+[node name="LegL" type="Bone2D" parent="Skeleton2D/Hip"]
+position = Vector2(65, 5)
+default_length = 220
+
+[node name="LegLSprite" type="Sprite2D" parent="Skeleton2D/Hip/LegL"]
+z_index = -1
+offset = Vector2(10, 195)
+texture = ExtResource("5_leg_l")
+
+[node name="LegR" type="Bone2D" parent="Skeleton2D/Hip"]
+position = Vector2(-65, 5)
+default_length = 220
+
+[node name="LegRSprite" type="Sprite2D" parent="Skeleton2D/Hip/LegR"]
+z_index = -1
+offset = Vector2(-15, 195)
+texture = ExtResource("6_leg_r")

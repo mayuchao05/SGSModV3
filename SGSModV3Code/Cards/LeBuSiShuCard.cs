@@ -2,6 +2,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using SGSModV3.Characters;
 using STS2RitsuLib.Interop.AutoRegistration;
@@ -20,6 +21,9 @@ public sealed class LeBuSiShuCard : SGSModV3BaseCard
     public LeBuSiShuCard() : base(3, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy, true)
     {
     }
+
+    // 「消耗」是卡牌特性，走 Keyword 驱动，不写进描述文本。
+    public override IEnumerable<CardKeyword> CanonicalKeywords => new List<CardKeyword> { CardKeyword.Exhaust };
 
     protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar>();
 
@@ -43,4 +47,11 @@ public sealed class LeBuSiShuCard : SGSModV3BaseCard
     }
 
     protected override void OnUpgrade() { }
+
+    // 卡面描述区分单体/AOE：基础「一名敌人」，升级「所有敌人」。
+    protected override void AddExtraArgsToDescription(LocString description)
+    {
+        base.AddExtraArgsToDescription(description);
+        description.Add("LeBuTarget", IsUpgraded ? "所有敌人" : "一名敌人");
+    }
 }

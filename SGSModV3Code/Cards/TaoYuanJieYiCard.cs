@@ -1,5 +1,7 @@
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using SGSModV3.Characters;
@@ -10,24 +12,40 @@ using System.Threading.Tasks;
 
 namespace SGSModV3.Cards;
 
-// 桃园结义：消耗，全体友方恢复 5 点血量。升级后 8 点。
-// 简单结算卡：对玩家角色回血（单人 MOD 友方即自身；若有队友可遍历 GetTeammatesOf）。
+// 桃园结义：联机专属，消耗，所有友方恢复 5 点血量。升级后 8 点。
+// 参考官方联机专属卡 GlimpseBeyond（彼岸一瞥）：通过 MultiplayerConstraint 限制仅在多人模式出现。
 [RegisterCard(typeof(SGSModV3CardPool))]
 public sealed class TaoYuanJieYiCard : SGSModV3BaseCard
 {
-    public TaoYuanJieYiCard() : base(2, CardType.Skill, CardRarity.Rare, TargetType.Self, true)
+    public TaoYuanJieYiCard() : base(2, CardType.Skill, CardRarity.Rare, TargetType.AllAllies, true)
     {
     }
+
+    // 联机专属：单人模式下不会出现在卡池、奖励、商店、转化等任何选牌界面。
+    public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
+
+    // 「消耗」是卡牌特性，走 Keyword 驱动，不写进描述文本。
+    public override IEnumerable<CardKeyword> CanonicalKeywords => new List<CardKeyword> { CardKeyword.Exhaust };
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new HealVar(5m)
     ];
 
-    protected override Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        CreatureCmd.Heal(Owner.Creature, DynamicVars.Heal.BaseValue, false);
-        return Task.CompletedTask;
+        // 所有友方（含自己）恢复生命。
+        ICombatState? combatState = Owner.Creature.CombatState;
+        if (combatState == null)
+            return;
+
+        foreach (Player player in combatState.Players)
+        {
+            if (player?.Creature == null)
+                continue;
+
+            await CreatureCmd.Heal(player.Creature, DynamicVars.Heal.BaseValue, false);
+        }
     }
 
     protected override void OnUpgrade() => DynamicVars.Heal.UpgradeValueBy(3m);

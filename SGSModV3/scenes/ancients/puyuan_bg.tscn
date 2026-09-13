@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://SGSModV3/images/ancients/puyuan_bg.jpg" id="1_puyuan"]
+
+[node name="PuYuanBackground" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Art" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
+texture = ExtResource("1_puyuan")
+
+[node name="Ember" type="CPUParticles2D" parent="."]
+position = Vector2(960, 1080)
+amount = 24
+lifetime = 6.0
+preprocess = 6.0
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(900, 40)
+direction = Vector2(0, -1)
+spread = 22.0
+gravity = Vector2(12, -70)
+initial_velocity_min = 30.0
+initial_velocity_max = 110.0
+scale_amount_min = 0.3
+scale_amount_max = 1.1
+color = Color(1, 0.62, 0.24, 0.85)

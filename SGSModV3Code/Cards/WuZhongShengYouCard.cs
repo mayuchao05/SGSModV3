@@ -14,6 +14,7 @@ namespace SGSModV3.Cards;
 // 升级移除“消耗”词条：RemoveKeyword 直接改实例关键字集（含标签与“打出后消耗”行为），
 // 描述用 IfUpgradedVar 在升级后隐藏“消耗”文本。
 [RegisterCard(typeof(SGSModV3CardPool))]
+[RegisterCharacterStarterCard(typeof(SGSModV3Character), 1)]
 public sealed class WuZhongShengYouCard : SGSModV3BaseCard
 {
     public WuZhongShengYouCard() : base(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self, true)

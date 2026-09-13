@@ -1,4 +1,5 @@
 using System.Reflection;
+using HarmonyLib;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
 using STS2RitsuLib;
@@ -32,6 +33,10 @@ public partial class Entry
         // 自动注册扫描会读取当前程序集里的 RegisterCard/RegisterRelic 等 attribute。
         // 新增内容类后，只要 attribute 写对，通常不需要在入口里手动逐个注册。
         ModTypeDiscoveryHub.RegisterModAssembly(ModId, assembly);
+
+        // Harmony 补丁：把第二层(Hive)先古之民固定为蒲元（Hive.get_AllAncients 被硬编码，
+        // RegisterActAncient 无法注入，必须 Harmony 补这道）。详见 Patches/HiveAncientPatch.cs。
+        new Harmony(ModId).PatchAll();
 
         Logger.Info("SGSModV3 initialized.");
     }

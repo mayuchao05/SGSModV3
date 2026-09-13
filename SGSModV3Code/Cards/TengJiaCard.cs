@@ -12,28 +12,41 @@ using System.Threading.Tasks;
 
 namespace SGSModV3.Cards;
 
-// 藤甲：能力，费1。
-// 效果：获得 5 层覆甲（回合结束获得等量格挡），但失去 1 点敏捷（影响格挡成长）。升级后覆甲 5 -> 7。
-// 覆甲用原生的 PlatingPower；敏捷用 DexterityPower（负值即减敏捷）。
+// 藤甲：能力，费1，品质蓝。
+// 数据表：获得 5 层覆甲，失去 1 点敏捷（升级后 7 层覆甲，失去 1 点敏捷）。
+// 实现：覆甲与敏捷损失都放在 DynamicVar 里，出牌时读取并手动施加。
+// 说明：覆甲用原生 PlatingPower；敏捷用 DexterityPower（负值即减敏捷）。
+//       描述令牌 {Plating:diff()} / {DexterityLoss:diff()} 依赖 CanonicalVars，之前为空导致数字不显示。
 [RegisterCard(typeof(SGSModV3CardPool))]
 public sealed class TengJiaCard : SGSModV3BaseCard
 {
-    private int _plating = 5;
+    private const string PlatingKey = "Plating";
+    private const string DexterityLossKey = "DexterityLoss";
 
-    public TengJiaCard() : base(1, CardType.Power, CardRarity.Uncommon, TargetType.Self, false)
+    public TengJiaCard() : base(1, CardType.Power, CardRarity.Uncommon, TargetType.Self, true)
     {
     }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar>();
+    protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar>
+    {
+        new DynamicVar(PlatingKey, 5m),
+        new DynamicVar(DexterityLossKey, 1m)
+    };
 
     protected override Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        // 获得 _plating 层覆甲
-        PowerCmd.Apply<PlatingPower>(choiceContext, Owner.Creature, _plating, Owner.Creature, this, false);
-        // 失去 1 点敏捷（负敏捷）
-        PowerCmd.Apply<DexterityPower>(choiceContext, Owner.Creature, -1m, Owner.Creature, this, false);
+        int plating = base.DynamicVars[PlatingKey].IntValue;
+        int dexLoss = base.DynamicVars[DexterityLossKey].IntValue;
+
+        // 获得覆甲
+        PowerCmd.Apply<PlatingPower>(choiceContext, Owner.Creature, plating, Owner.Creature, this, false);
+        // 失去敏捷（负敏捷）
+        PowerCmd.Apply<DexterityPower>(choiceContext, Owner.Creature, -dexLoss, Owner.Creature, this, false);
         return Task.CompletedTask;
     }
 
-    protected override void OnUpgrade() => _plating += 2;
+    protected override void OnUpgrade()
+    {
+        base.DynamicVars[PlatingKey].UpgradeValueBy(2m);
+    }
 }

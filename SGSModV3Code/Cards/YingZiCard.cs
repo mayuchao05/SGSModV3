@@ -3,7 +3,6 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models.Powers;
 using SGSModV3.Characters;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -14,16 +13,15 @@ namespace SGSModV3.Cards;
 
 // 英姿：能力，费1。
 // 基础效果：每回合开始时额外摸 1 张牌（持续整场战斗）。
-//   实现：ClarityPower = “未来 N 个回合开始时各额外摸 1 张牌”，用足够大的 N 覆盖整场战斗。
-// 升级效果：在基础上，每个回合结束时令一张手牌获得“保留”（下回合仍留手中）。
-//   实现：额外施加一个 YingZiRetainPower（临时能力，挂在玩家身上，回合结束触发）。
+//   实现：YingZiDrawPower（MOD 自建状态）：层数 = 每回合额外抽牌数，不随时间衰减。
+//         打出两张 = 2 层 = 每回合额外摸 2 张。
+// 升级效果：获得「固有」词条 —— 战斗开始时必定出现在起手手牌中。
+//   参照内置卡「机器学习 MachineLearning」（故障机器人）：OnUpgrade => AddKeyword(CardKeyword.Innate)。
+//   注：「固有 / 消耗」属于卡牌特性，由 Keyword 驱动，不写进卡面描述文本。
 [RegisterCard(typeof(SGSModV3CardPool))]
 public sealed class YingZiCard : SGSModV3BaseCard
 {
-    // 覆盖整场战斗所需的回合数（典型战斗不会超过此值）
-    private const int REST_OF_COMBAT_TURNS = 99;
-
-    public YingZiCard() : base(1, CardType.Power, CardRarity.Uncommon, TargetType.Self, false)
+    public YingZiCard() : base(1, CardType.Power, CardRarity.Uncommon, TargetType.Self, true)
     {
     }
 
@@ -31,20 +29,15 @@ public sealed class YingZiCard : SGSModV3BaseCard
 
     protected override Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        // 每回合开始额外摸 1 张
-        PowerCmd.Apply<ClarityPower>(choiceContext, Owner.Creature, REST_OF_COMBAT_TURNS, Owner.Creature, this, false);
-
-        // 升级：回合结束保留一张手牌
-        if (IsUpgraded)
-        {
-            PowerCmd.Apply<YingZiRetainPower>(choiceContext, new[] { Owner.Creature }, 0, Owner.Creature, this, false);
-        }
-
+        // 每回合开始额外摸 1 张（可叠加）
+        PowerCmd.Apply<YingZiDrawPower>(choiceContext, Owner.Creature, 1m, Owner.Creature, this, false);
         return Task.CompletedTask;
     }
 
     protected override void OnUpgrade()
     {
-        // 升级仅改变效果（附加“回合结束保留一张牌”），不改变费用/数值。
+        // 与内置卡「机器学习」同款写法：升级后获得「固有」。
+        // AddKeyword 直接修改实例关键字集（同族的 RemoveKeyword 已在“无中生有”上验证有效）。
+        base.AddKeyword(CardKeyword.Innate);
     }
 }

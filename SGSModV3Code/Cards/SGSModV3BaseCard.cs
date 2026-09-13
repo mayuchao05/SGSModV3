@@ -1,7 +1,9 @@
 ﻿using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 using SGSModV3.Characters;
+using System.Threading.Tasks;
 
 namespace SGSModV3.Cards;
 
@@ -20,4 +22,11 @@ public abstract class SGSModV3BaseCard : ModCardTemplate
     public override string CustomPortraitPath => $"{Entry.ResPath}/images/cards/{GetType().Name}.png";
 #pragma warning restore RITSU013
 
+    // 出牌视觉钩子：让角色做出对应动作（攻击牌挥剑，技能/能力牌施法）。
+    // 子类不会覆盖这个钩子，所以写在这里即可对全部卡牌生效。
+    public override Task OnEnqueuePlayVfx(Creature? target)
+    {
+        CardAnimTrigger.Play(this);
+        return base.OnEnqueuePlayVfx(target);
+    }
 }

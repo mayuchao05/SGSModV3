@@ -1,8 +1,8 @@
+using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Rooms;
 using SGSModV3.Characters;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -15,17 +15,16 @@ namespace SGSModV3.Relics;
 [RegisterCharacterStarterRelic(typeof(SGSModV3Character))]
 public sealed class SGSModV3Relic : ModRelicTemplate
 {
-    // 稀有度。
+    // 稀有度：起点遗物用 Common（与模板工程 ReferenceMod 一致，游戏内由 RegisterCharacterStarterRelic 保证为角色初始遗物）。
     public override RelicRarity Rarity => RelicRarity.Common;
 
-    // 遗物的数值。这里会替换本地化中的 {Cards}。
+    // 遗物的数值。这里会替换本地化中的 {Gold}。
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CardsVar(1)
+        new GoldVar(10)
     ];
 
     // 图片资源统一放在 AssetProfile 里配置。
-    // 三个路径可以先指向同一张图。后续有高清图或轮廓图时再拆开。
     public override RelicAssetProfile AssetProfile => new(
         // 小图标（原版 85x85）。
         IconPath: $"{Entry.ResPath}/images/relics/{GetType().Name}.png",
@@ -34,10 +33,10 @@ public sealed class SGSModV3Relic : ModRelicTemplate
         // 大图标（原版 256x256）。
         BigIconPath: $"{Entry.ResPath}/images/relics/{GetType().Name}.png");
 
-    // 每回合开始时，抽一张牌。
-    // 这里使用 DynamicVars.Cards.IntValue，保证效果和本地化显示保持一致。
-    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    // 每次战斗结束时，获得 10 金币。
+    public override async Task AfterCombatEnd(CombatRoom room)
     {
-        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.IntValue, player);
+        Flash();
+        await PlayerCmd.GainGold(base.DynamicVars.Gold.IntValue, base.Owner);
     }
 }

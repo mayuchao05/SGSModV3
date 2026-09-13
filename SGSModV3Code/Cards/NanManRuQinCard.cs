@@ -13,29 +13,38 @@ using System.Threading.Tasks;
 
 namespace SGSModV3.Cards;
 
-// 南蛮入侵：技能，费2，所有敌人失去 5 点力量（升级后 8 点）。
-// 直接对全体敌人施加负力量（= 失去力量），确保稳定生效。
-// （之前走 PowerVar 自动施加通道未生效，这里改用手动 PowerCmd.Apply，与武魂同款可靠写法。）
+// 南蛮入侵：技能，费2，品质蓝。
+// 数据表：所有敌人失去 2 点力量（升级后 3 点）。
+// 实现：数值放在 DynamicVar（键 "StrengthLoss"）里，出牌时读取并手动施加负力量。
+// 说明：描述里的 {StrengthLoss:diff()} 令牌依赖 CanonicalVars 声明的 Var，
+//       之前 CanonicalVars 返回空列表导致卡面数字渲染为空白，现按内置卡 DarkShackles 的范式修复。
 [RegisterCard(typeof(SGSModV3CardPool))]
 public sealed class NanManRuQinCard : SGSModV3BaseCard
 {
-    private int _amount = 5;
+    private const string StrengthLossKey = "StrengthLoss";
 
-    public NanManRuQinCard() : base(2, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies, false)
+    public NanManRuQinCard() : base(2, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies, true)
     {
     }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar>();
+    protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar>
+    {
+        new DynamicVar(StrengthLossKey, 2m)
+    };
 
     protected override Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        // 对全体敌人施加负力量（失去力量）。StrengthPower 支持负值（AllowNegative）。
+        int loss = base.DynamicVars[StrengthLossKey].IntValue;
+        // 对全体敌人施加负力量（= 失去力量）。StrengthPower 支持负值（AllowNegative）。
         foreach (var enemy in this.GetTargets(Owner.Creature))
         {
-            PowerCmd.Apply<StrengthPower>(choiceContext, enemy, -_amount, Owner.Creature, this, false);
+            PowerCmd.Apply<StrengthPower>(choiceContext, enemy, -loss, Owner.Creature, this, false);
         }
         return Task.CompletedTask;
     }
 
-    protected override void OnUpgrade() => _amount += 3;
+    protected override void OnUpgrade()
+    {
+        base.DynamicVars[StrengthLossKey].UpgradeValueBy(1m);
+    }
 }

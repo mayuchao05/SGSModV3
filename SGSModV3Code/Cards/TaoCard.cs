@@ -12,7 +12,7 @@ namespace SGSModV3.Cards;
 
 // 桃：回复生命，消耗。三国杀经典救牌。
 [RegisterCard(typeof(SGSModV3CardPool))]
-[RegisterCharacterStarterCard(typeof(SGSModV3Character), 2)]
+[RegisterCharacterStarterCard(typeof(SGSModV3Character), 1)]
 public sealed class TaoCard : SGSModV3BaseCard
 {
     public TaoCard() : base(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self, true)

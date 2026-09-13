@@ -1,19 +1,21 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/SGSModV3_character_select.png" id="1_character"]
+[ext_resource type="SpriteFrames" path="res://SGSModV3/images/characters/frames/SGSModV3_wuluxun_frames.tres" id="1_frames"]
+[ext_resource type="Texture2D" path="res://SGSModV3/images/characters/frames/Idle/idle_00.png" id="2_idle"]
 
 [node name="SGSModV3CharacterRestSite" type="Node2D"]
 
-[node name="Visuals" type="Sprite2D" parent="."]
-position = Vector2(0, -96)
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("1_character")
+[node name="Visuals" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -102)
+scale = Vector2(0.88, 0.88)
+sprite_frames = ExtResource("1_frames")
+autoplay = "Idle"
 
 [node name="Shadow" type="Sprite2D" parent="."]
-position = Vector2(75, -58)
-scale = Vector2(0.75, 0.75)
+position = Vector2(75, -62)
+scale = Vector2(0.66, 0.66)
 modulate = Color(0.25, 0.25, 0.25, 0.45)
-texture = ExtResource("1_character")
+texture = ExtResource("2_idle")
 
 [node name="ControlRoot" type="Control" parent="."]
 unique_name_in_owner = true

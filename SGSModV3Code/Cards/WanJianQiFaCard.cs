@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using SGSModV3.Characters;
+using SGSModV3;
 using STS2RitsuLib.Combat.CardTargeting;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -28,15 +29,15 @@ public sealed class WanJianQiFaCard : SGSModV3BaseCard
         new DamageVar(10m, ValueProp.Move)
     ];
 
-    protected override Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         // 解析这张牌（AllEnemies 目标类型）对应的全体敌人。
         IEnumerable<Creature> targets = this.GetTargets(Owner.Creature);
 
         // 通过战斗命令对全体敌人结算伤害（走正常的伤害/格挡/死亡/动画流程）。
-        CreatureCmd.Damage(choiceContext, targets, DynamicVars.Damage, Owner.Creature, this, cardPlay);
+        await SGSModV3Damage.DealPhysicalDamageToTargets(choiceContext, targets, DynamicVars.Damage, Owner.Creature, Owner, this, cardPlay);
 
-        return Task.CompletedTask;
+        return;
     }
 
     protected override void OnUpgrade()
