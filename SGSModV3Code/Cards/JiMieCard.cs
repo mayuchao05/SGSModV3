@@ -16,7 +16,7 @@ namespace SGSModV3.Cards;
 [RegisterCard(typeof(SGSModV3CardPool))]
 public sealed class JiMieCard : SGSModV3BaseCard
 {
-    public JiMieCard() : base(2, CardType.Power, CardRarity.Rare, TargetType.Self, true)
+    public JiMieCard() : base(2, CardType.Power, CardRarity.Uncommon, TargetType.Self, true)
     {
     }
 

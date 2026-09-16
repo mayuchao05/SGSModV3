@@ -29,6 +29,11 @@ public sealed class LiMuZeroCostPower : ModPowerTemplate
     public override bool TryModifyEnergyCostInCombatLate(CardModel card, decimal originalCost, out decimal modifiedCost)
     {
         modifiedCost = originalCost;
+        // 同咆哮：仅对本体的攻击牌生效，避免多人模式误减他人费用并引发数据不同步。
+        if (card.Owner?.Creature != base.Owner)
+        {
+            return false;
+        }
         if (card.Type != CardType.Attack)
         {
             return false;

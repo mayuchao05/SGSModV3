@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace SGSModV3.Cards;
 
-// 琴音：攻击，费 1，品质蓝。失去 3 点生命，对所有敌人造成 12 点伤害。
+// 琴音：攻击，费 1，品质蓝。失去 2 点生命，对所有敌人造成 12 点伤害。
 [RegisterCard(typeof(SGSModV3CardPool))]
 public sealed class QinYinCard : SGSModV3BaseCard
 {
@@ -26,7 +26,7 @@ public sealed class QinYinCard : SGSModV3BaseCard
 
     protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar>
     {
-        new DynamicVar(HpLossKey, 3m),
+        new DynamicVar(HpLossKey, 2m),
         new DamageVar(12m, ValueProp.Move)
     };
 

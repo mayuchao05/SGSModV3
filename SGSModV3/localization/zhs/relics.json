@@ -21,9 +21,9 @@
   "SGS_MOD_V3_RELIC_LIE_CUI_DAO.description": "每回合第 1 次对敌人造成伤害时，该伤害翻倍。",
   "SGS_MOD_V3_RELIC_LIE_CUI_DAO.flavor": "出炉未冷即入寒泉，一淬而成，一击而绝。",
   "SGS_MOD_V3_RELIC_DUAN_ZAO_TAI.title": "锻造台",
-  "SGS_MOD_V3_RELIC_DUAN_ZAO_TAI.description": "拾起时，随机升级 4 张攻击牌。",
+  "SGS_MOD_V3_RELIC_DUAN_ZAO_TAI.description": "拾起时，随机升级 5 张攻击牌。",
   "SGS_MOD_V3_RELIC_DUAN_ZAO_TAI.flavor": "铁砧不歇，凡兵淬火即成利刃。",
   "SGS_MOD_V3_RELIC_RONG_LU.title": "熔炉",
-  "SGS_MOD_V3_RELIC_RONG_LU.description": "拾起时，从牌组中移除 1 张牌，并获得 150 金币。",
+  "SGS_MOD_V3_RELIC_RONG_LU.description": "拾起时，从牌组中移除 1 张牌，并获得 250 金币。",
   "SGS_MOD_V3_RELIC_RONG_LU.flavor": "炉火照天地，碎铁亦可熔金。"
 }

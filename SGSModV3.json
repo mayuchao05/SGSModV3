@@ -4,7 +4,7 @@
   "name": "三国杀·杀戮尖塔2",
   "author": "苦苦林",
   "description": "三国杀主题 MOD：新增角色「武陆逊」与卡池（52 张卡牌：杀/闪/桃、万箭齐发、南蛮入侵、决斗、火攻、业炎、闪电等），9 件遗物，火焰 / 雷电属性伤害体系，以及第二层原创先古之民「蒲元」事件。依赖 RitsuLib 运行库。",
-  "version": "0.9.0",
+  "version": "1.0.2",
   "has_pck": true,
   "has_dll": true,
   "affects_gameplay": true,

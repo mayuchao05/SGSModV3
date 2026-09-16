@@ -21,9 +21,9 @@
   "SGS_MOD_V3_RELIC_LIE_CUI_DAO.description": "The first time each turn you deal damage to an enemy, that damage is doubled.",
   "SGS_MOD_V3_RELIC_LIE_CUI_DAO.flavor": "From furnace to cold spring in one breath; quenched once, it ends a fight in one stroke.",
   "SGS_MOD_V3_RELIC_DUAN_ZAO_TAI.title": "Forge Table",
-  "SGS_MOD_V3_RELIC_DUAN_ZAO_TAI.description": "On pickup, upgrade 4 random Attack cards.",
+  "SGS_MOD_V3_RELIC_DUAN_ZAO_TAI.description": "On pickup, upgrade 5 random Attack cards.",
   "SGS_MOD_V3_RELIC_DUAN_ZAO_TAI.flavor": "The anvil never rests; common steel becomes a keen edge.",
   "SGS_MOD_V3_RELIC_RONG_LU.title": "Furnace",
-  "SGS_MOD_V3_RELIC_RONG_LU.description": "On pickup, remove 1 card from your deck and gain 150 gold.",
+  "SGS_MOD_V3_RELIC_RONG_LU.description": "On pickup, remove 1 card from your deck and gain 250 gold.",
   "SGS_MOD_V3_RELIC_RONG_LU.flavor": "Its fire lights heaven and earth; even scrap melts into gold."
 }

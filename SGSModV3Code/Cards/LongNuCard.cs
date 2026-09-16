@@ -20,7 +20,7 @@ public sealed class LongNuCard : SGSModV3BaseCard
 
     protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar>
     {
-        new EnergyVar(1)
+        new EnergyVar(2)
     };
 
     protected override Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

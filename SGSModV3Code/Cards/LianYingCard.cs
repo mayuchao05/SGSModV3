@@ -18,7 +18,7 @@ public sealed class LianYingCard : SGSModV3BaseCard
 {
     private const string CardsKey = "Cards";
 
-    public LianYingCard() : base(3, CardType.Power, CardRarity.Uncommon, TargetType.Self, true)
+    public LianYingCard() : base(2, CardType.Power, CardRarity.Uncommon, TargetType.Self, true)
     {
     }
 
@@ -36,7 +36,7 @@ public sealed class LianYingCard : SGSModV3BaseCard
 
     protected override void OnUpgrade()
     {
-        // 数据表：升级只降费（3 -> 2）
+        // 数据表：升级只降费（2 -> 1）
         base.EnergyCost.UpgradeBy(-1);
     }
 }

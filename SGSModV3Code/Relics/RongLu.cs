@@ -23,7 +23,7 @@ public sealed class RongLu : ModRelicTemplate
 
     public override bool HasUponPickupEffect => true;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new GoldVar(150)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new GoldVar(250)];
 
     public override RelicAssetProfile AssetProfile => new(
         IconPath: $"{Entry.ResPath}/images/relics/{GetType().Name}.png",

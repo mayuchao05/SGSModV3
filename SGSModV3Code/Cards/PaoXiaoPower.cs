@@ -23,9 +23,17 @@ public sealed class PaoXiaoPower : ModPowerTemplate
 
     // 攻击牌（杀/火杀/雷杀/决斗等）能量消耗减 Amount；Counter 叠加后每层再 -1。
     // Math.Max 防止变为负数。框架会把所有 model 的修改链式累加，所以多张咆哮会叠加。
+    //
+    // 多人模式关键修复：框架会对战斗中每张被打出的卡、向“所有存活状态”询问降费，
+    // 因此必须限定「卡牌拥有者 == 本状态拥有者」才生效，否则会误减其他玩家攻击牌费用，
+    // 且各客户端算出的扣费不一致导致数据不同步。
     public override bool TryModifyEnergyCostInCombat(CardModel card, decimal originalCost, out decimal modifiedCost)
     {
         modifiedCost = originalCost;
+        if (card.Owner?.Creature != base.Owner)
+        {
+            return false;
+        }
         if (card.Type != CardType.Attack)
         {
             return false;
